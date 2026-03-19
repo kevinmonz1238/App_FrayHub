@@ -3,8 +3,25 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  path: '',
+  redirectTo: 'inicio',
+  pathMatch: 'full'
+},
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'tareas',
+    loadChildren: () => import('./pages/tareas/tareas.module').then( m => m.TareasPageModule)
+  },
+  {
+    path: 'comunidad',
+    loadChildren: () => import('./pages/comunidad/comunidad.module').then( m => m.ComunidadPageModule)
+  },
+  {
+    path: 'materias',
+    loadChildren: () => import('./pages/materias/materias.module').then( m => m.MateriasPageModule)
   }
 ];
 @NgModule({
