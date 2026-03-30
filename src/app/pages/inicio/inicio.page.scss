@@ -1,0 +1,110 @@
+/* Fondo general */
+.fondo {
+  --background: #ffffff;
+}
+
+/* Contenedor principal */
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0a1f44; /* Azul marino */
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.subtitulo {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Tarjetas */
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #ff6b00; /* Naranja */
+  transition: transform 0.2s ease;
+}
+
+/* Hover bonito */
+.card:hover {
+  transform: translateY(-5px);
+  border-left: 6px solid #d90429; /* Rojo */
+}
+
+/* Títulos de card */
+.card h2 {
+  color: #0a1f44; /* Azul marino */
+  margin-bottom: 8px;
+}
+
+/* Texto de card */
+.card p {
+  color: #666;
+}
+
+/* Botón principal */
+.btn-primary {
+  --background: #0a1f44; /* Azul marino */
+  --color: #ffffff;
+  margin-top: 20px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Hover botón */
+.btn-primary:hover {
+  --background: #ff6b00; /* Naranja */
+}
+
+/* Toolbar (header) */
+ion-toolbar {
+  --background: #0a1f44; /* Azul marino */
+  --color: #ffffff;
+}
+
+/* Título del header */
+ion-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
+/* Toolbar */
+ion-toolbar {
+  --background: #0a1f44; /* azul marino */
+  --color: #ffffff;
+  border-bottom: 3px solid #ff6b00; /* línea naranja */
+}
+
+/* Título */
+ion-title {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Botón del menú */
+ion-menu-button {
+  color: #ffffff;
+}
+
+/* Efecto sutil */
+ion-toolbar::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
+}

@@ -1,0 +1,102 @@
+/* Fondo */
+ion-content {
+  --background: #f5f7fb;
+}
+
+/* Header */
+ion-toolbar {
+  --background: #0a1f44; /* azul marino */
+  --color: #ffffff;
+}
+
+/* Encabezado */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #0a1f44;
+  margin-bottom: 5px;
+}
+
+.header p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Card input */
+ion-card:first-of-type {
+  border-left: 5px solid #ff6b00; /* naranja */
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Botón */
+ion-button {
+  --background: #0a1f44;
+  --color: #ffffff;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Cards de comentarios */
+ion-card {
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Diferenciar comentarios */
+ion-card:not(:first-of-type) {
+  border-left: 5px solid #d90429; /* rojo */
+}
+
+/* Nombre */
+ion-card h2 {
+  color: #0a1f44;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Texto */
+ion-card p {
+  color: #333;
+  font-size: 14px;
+}
+
+/* Fecha */
+ion-card small {
+  color: #999;
+}
+
+/* Toolbar */
+ion-toolbar {
+  --background: #0a1f44; /* azul marino */
+  --color: #ffffff;
+  border-bottom: 3px solid #ff6b00; /* línea naranja */
+}
+
+/* Título */
+ion-title {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Botón del menú */
+ion-menu-button {
+  color: #ffffff;
+}
+
+/* Efecto sutil */
+ion-toolbar::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
+}

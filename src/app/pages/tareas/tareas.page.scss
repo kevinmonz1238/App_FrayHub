@@ -1,0 +1,103 @@
+/* Fondo */
+ion-content {
+  --background: #f5f7fb; /* blanco suave */
+}
+
+/* Header */
+ion-toolbar {
+  --background: #0a1f44; /* azul marino */
+  --color: #ffffff;
+}
+
+/* Cards */
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+/* Títulos de materias */
+ion-card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ===== COLORES POR MATERIA ===== */
+
+/* Matemáticas */
+ion-card:nth-child(1) {
+  border-left: 6px solid #0a1f44; /* azul */
+}
+
+/* Español */
+ion-card:nth-child(2) {
+  border-left: 6px solid #d90429; /* rojo */
+}
+
+/* Inglés */
+ion-card:nth-child(3) {
+  border-left: 6px solid #ff6b00; /* naranja */
+}
+
+/* Items de tareas */
+ion-item {
+  --background: transparent;
+  --color: #333;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  transition: 0.2s ease;
+}
+
+/* Hover */
+ion-item:hover {
+  --background: #eef2ff;
+  transform: scale(1.01);
+}
+
+/* Título de tarea */
+ion-item h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0a1f44;
+}
+
+/* Fecha */
+ion-item p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Espaciado interno */
+ion-card-content {
+  padding-top: 10px;
+}
+
+
+/* Toolbar */
+ion-toolbar {
+  --background: #0a1f44; /* azul marino */
+  --color: #ffffff;
+  border-bottom: 3px solid #ff6b00; /* línea naranja */
+}
+
+/* Título */
+ion-title {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Botón del menú */
+ion-menu-button {
+  color: #ffffff;
+}
+
+/* Efecto sutil */
+ion-toolbar::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
+}

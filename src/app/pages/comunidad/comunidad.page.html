@@ -7,11 +7,39 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content class="ion-padding">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">comunidad</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Título -->
+  <div class="header">
+    <h1>Comunidad Escolar</h1>
+    <p>Comparte ideas con tus compañeros</p>
+  </div>
+
+  <!-- Input para comentar -->
+  <ion-card>
+    <ion-item lines="none">
+      <ion-input placeholder="Escribe un comentario..."></ion-input>
+    </ion-item>
+    <ion-button expand="block">
+      Publicar
+    </ion-button>
+  </ion-card>
+
+  <!-- Lista de comentarios -->
+  <ion-card>
+    <ion-card-content>
+      <h2>Alumno</h2>
+      <p>Este es un comentario de ejemplo.</p>
+      <small>Hoy</small>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h2>Alumno</h2>
+      <p>Otro comentario dentro de la comunidad.</p>
+      <small>Ayer</small>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

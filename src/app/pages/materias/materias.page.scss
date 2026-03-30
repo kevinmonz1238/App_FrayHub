@@ -1,0 +1,93 @@
+/* Fondo */
+.fondo {
+  --background: #f5f7fb;
+}
+
+/* Título */
+.titulo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #0a1f44;
+  margin-bottom: 5px;
+}
+
+/* Subtítulo */
+.subtitulo {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+ion-card {
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* Botones */
+ion-button {
+  margin-top: 10px;
+  --border-radius: 10px;
+  font-weight: bold;
+}
+
+/* ===== COLORES POR MATERIA ===== */
+
+/* Matemáticas */
+.card-mate {
+  border-left: 6px solid #0a1f44;
+}
+
+.card-mate ion-button {
+  --background: #0a1f44;
+  --color: #fff;
+}
+
+/* Español */
+.card-espanol {
+  border-left: 6px solid #d90429;
+}
+
+.card-espanol ion-button {
+  --background: #d90429;
+  --color: #fff;
+}
+
+/* Inglés */
+.card-ingles {
+  border-left: 6px solid #ff6b00;
+}
+
+.card-ingles ion-button {
+  --background: #ff6b00;
+  --color: #fff;
+}
+
+
+/* Toolbar */
+ion-toolbar {
+  --background: #0a1f44; /* azul marino */
+  --color: #ffffff;
+  border-bottom: 3px solid #ff6b00; /* línea naranja */
+}
+
+/* Título */
+ion-title {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Botón del menú */
+ion-menu-button {
+  color: #ffffff;
+}
+
+/* Efecto sutil */
+ion-toolbar::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
+}

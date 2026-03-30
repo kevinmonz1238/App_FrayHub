@@ -1,0 +1,125 @@
+/* Fondo general del menú */
+ion-menu {
+  --background: #0a1f44; /* Azul marino */
+}
+
+/* Header */
+ion-menu ion-toolbar {
+  --background: #0a1f44;
+  --color: #ffffff;
+  border-bottom: 2px solid #ff6b00; /* Naranja */
+}
+
+/* Lista */
+ion-menu ion-list {
+  background: transparent;
+  padding-top: 10px;
+}
+
+/* Items */
+ion-menu ion-item {
+  --background: transparent;
+  --color: #ffffff;
+  margin: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+ion-menu ion-item:hover {
+  --background: #ff6b00; /* Naranja */
+  --color: #ffffff;
+  transform: translateX(6px);
+}
+
+/* Activo */
+ion-menu ion-item.router-link-active {
+  --background: #ffffff;
+  --color: #0a1f44; /* Azul marino */
+  font-weight: bold;
+}
+
+/* Línea lateral naranja en activo */
+ion-menu ion-item.router-link-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: #ff6b00;
+  border-radius: 12px 0 0 12px;
+}
+
+
+/* Fondo completo del menú */
+ion-menu {
+  --background: #0a1f44 !important; /* Azul marino */
+}
+
+/* Header */
+ion-menu ion-toolbar {
+  --background: #0a1f44 !important;
+  --color: #ffffff !important;
+  border-bottom: 3px solid #ff6b00; /* Naranja */
+}
+
+/* Título */
+ion-menu ion-title {
+  color: #ffffff !important;
+  text-align: center;
+}
+
+/* Contenido */
+ion-menu ion-content {
+  --background: #0a1f44 !important;
+}
+
+/* Items */
+ion-menu ion-item {
+  --background: transparent !important;
+  --color: #ffffff !important;
+  margin: 8px 12px;
+  border-radius: 12px;
+}
+
+/* Hover */
+ion-menu ion-item:hover {
+  --background: #ff6b00 !important;
+}
+
+/* Activo */
+ion-menu ion-item.router-link-active {
+  --background: #ffffff !important;
+  --color: #0a1f44 !important;
+  font-weight: bold;
+}
+
+
+ion-menu ion-icon {
+  color: #ff6b00; /* Naranja */
+  font-size: 20px;
+}
+
+ion-menu ion-item.router-link-active ion-icon {
+  color: #0a1f44; /* Azul marino cuando está activo */
+}
+
+
+/* Hace que el contenido se distribuya */
+ion-menu ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Imagen abajo */
+.menu-footer {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Imagen */
+.menu-footer img {
+  width: 120px;
+  opacity: 0.8;
+}
