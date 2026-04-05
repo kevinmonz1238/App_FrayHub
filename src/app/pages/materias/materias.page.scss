@@ -91,3 +91,27 @@ ion-toolbar::after {
   width: 100%;
   background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
 }
+
+/* Quitar fondo raro */
+ion-segment {
+  background: #0a1f44; /* mismo azul */
+  padding: 5px 10px;
+}
+
+/* Botones */
+ion-segment-button {
+  --color: #ffffff;
+  --color-checked: #ff6b00;
+  font-weight: bold;
+}
+
+/* Indicador (la rayita) */
+ion-segment-button::part(indicator) {
+  background: #ff6b00;
+  height: 3px;
+}
+
+/* Quitar sombra rara */
+ion-header {
+  box-shadow: none !important;
+}

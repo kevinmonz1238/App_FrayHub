@@ -1,23 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MateriasPage } from './materias.page';
+import { BibliotecaPage } from './biblioteca.page';
 
-describe('MateriasPage', () => {
-  let component: MateriasPage;
-  let fixture: ComponentFixture<MateriasPage>;
+describe('BibliotecaPage', () => {
+  let component: BibliotecaPage;
+  let fixture: ComponentFixture<BibliotecaPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MateriasPage);
+    fixture = TestBed.createComponent(BibliotecaPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    
   });
-
-
-  
 });
-
-

@@ -108,3 +108,19 @@ ion-toolbar::after {
   width: 100%;
   background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
 }
+
+/* Contenedor de la imagen */
+.menu-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100; /* ocupa toda la pantalla */
+  margin-top: 40px;
+}
+
+/* Imagen */
+.menu-footer img {
+  width: 100px;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 5px #ff6b00);
+}

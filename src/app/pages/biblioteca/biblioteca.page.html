@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Biblioteca</ion-title>
+  </ion-toolbar>
+
+  <!-- SEGMENTOS (IGUAL QUE MATERIAS) -->
+  <ion-segment [(ngModel)]="segmento" (ionChange)="cambiarSegmento($event)">
+    <ion-segment-button value="materias">
+      <ion-label>Materias</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="biblioteca">
+      <ion-label>Biblioteca </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content class="ion-padding fondo">
+
+  <!-- CONTENIDO DE BIBLIOTECA -->
+  <h1 class="titulo">Biblioteca 📚</h1>
+  <p class="subtitulo">Material de apoyo para tus materias</p>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Álgebra básica</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Material para aprender ecuaciones y operaciones.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Gramática Inglés</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Reglas básicas y ejercicios.</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

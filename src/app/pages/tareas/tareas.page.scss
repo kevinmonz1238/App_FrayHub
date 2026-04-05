@@ -1,103 +1,239 @@
-/* Fondo */
-ion-content {
-  --background: #f5f7fb; /* blanco suave */
+/* ===== HEADER ===== */
+.header-toolbar {
+  --background: #0a1f44;
+  --color: #ffffff;
+  border-bottom: 3px solid #ff6b00;
 }
 
-/* Header */
-ion-toolbar {
-  --background: #0a1f44; /* azul marino */
+.header-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.add-btn {
   --color: #ffffff;
 }
 
-/* Cards */
-ion-card {
-  border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  margin-bottom: 20px;
-  overflow: hidden;
+/* ===== FONDO ===== */
+.tareas-content {
+  --background: #f5f7fb;
 }
 
-/* Títulos de materias */
-ion-card-title {
-  font-size: 20px;
+/* ===== FORMULARIO ===== */
+.new-task-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #ff6b00;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.form-title {
+  color: #0a1f44;
+  margin-bottom: 10px;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  font-size: 13px;
+  color: #555;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+}
+
+/* Upload */
+.file-upload-zone {
+  border: 2px dashed #ff6b00;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 30px;
+  color: #ff6b00;
+}
+
+.upload-text span {
+  color: #0a1f44;
   font-weight: bold;
 }
 
-/* ===== COLORES POR MATERIA ===== */
-
-/* Matemáticas */
-ion-card:nth-child(1) {
-  border-left: 6px solid #0a1f44; /* azul */
+/* Archivos */
+.file-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 8px;
+  margin-top: 5px;
 }
 
-/* Español */
-ion-card:nth-child(2) {
-  border-left: 6px solid #d90429; /* rojo */
+.file-icon {
+  color: #ff6b00;
 }
 
-/* Inglés */
-ion-card:nth-child(3) {
-  border-left: 6px solid #ff6b00; /* naranja */
+.remove-file {
+  color: #d90429;
+  margin-left: auto;
 }
 
-/* Items de tareas */
-ion-item {
-  --background: transparent;
-  --color: #333;
+/* Botones form */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn-cancel {
+  background: #ddd;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.btn-save {
+  background: #0a1f44;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* ===== STATS ===== */
+.stats-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.stat-pill {
+  background: #0a1f44;
+  color: #fff;
+  padding: 8px;
   border-radius: 10px;
-  margin-bottom: 8px;
-  transition: 0.2s ease;
+  text-align: center;
+  flex: 1;
+  margin: 0 3px;
 }
 
-/* Hover */
-ion-item:hover {
-  --background: #eef2ff;
-  transform: scale(1.01);
+.stat-pill.pendiente {
+  background: #ff6b00;
 }
 
-/* Título de tarea */
-ion-item h2 {
+.stat-pill.completada {
+  background: #d90429;
+}
+
+/* ===== TARJETAS ===== */
+.task-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-left: 5px solid #0a1f44;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Completada */
+.task-card.completed {
+  opacity: 0.7;
+  border-left: 5px solid #d90429;
+}
+
+/* Header tarea */
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Check */
+.task-check ion-icon {
+  font-size: 24px;
+  color: #ff6b00;
+}
+
+.task-check ion-icon.checked {
+  color: #d90429;
+}
+
+/* Info */
+.task-title {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
   color: #0a1f44;
 }
 
-/* Fecha */
-ion-item p {
-  font-size: 13px;
+.task-materia {
+  font-size: 12px;
   color: #666;
 }
 
-/* Espaciado interno */
-ion-card-content {
-  padding-top: 10px;
+/* Botón eliminar */
+.action-btn.delete {
+  background: transparent;
+  color: #d90429;
 }
 
-
-/* Toolbar */
-ion-toolbar {
-  --background: #0a1f44; /* azul marino */
-  --color: #ffffff;
-  border-bottom: 3px solid #ff6b00; /* línea naranja */
+/* Descripción */
+.task-desc {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #444;
 }
 
-/* Título */
-ion-title {
+/* Archivos adjuntos */
+.attached-file {
+  display: flex;
+  gap: 5px;
+  font-size: 13px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Footer */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.task-date {
+  color: #666;
+}
+
+.task-status {
   font-weight: bold;
+  color: #ff6b00;
+}
+
+.task-status.done {
+  color: #d90429;
+}
+
+/* ===== EMPTY ===== */
+.empty-state {
   text-align: center;
-  letter-spacing: 1px;
+  margin-top: 40px;
+  color: #888;
 }
 
-/* Botón del menú */
-ion-menu-button {
-  color: #ffffff;
-}
-
-/* Efecto sutil */
-ion-toolbar::after {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: linear-gradient(to right, #ff6b00, #d90429); /* naranja a rojo */
+.empty-state ion-icon {
+  font-size: 40px;
+  color: #0a1f44;
 }
