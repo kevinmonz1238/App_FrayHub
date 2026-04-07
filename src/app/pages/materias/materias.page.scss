@@ -142,3 +142,44 @@ ion-header {
     #cc0000 50%, #cc0000 100% // Rojo abajo
   );
 }
+
+.card-pendiente {
+  --background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  overflow: hidden; // Importante para que la línea de arriba no se salga de las esquinas redondeadas
+
+  ion-card-title {
+    color: #051630; // El mismo azul del header
+    font-weight: bold;
+  }
+
+  ion-card-subtitle {
+    color: #d90429; // El rojo de la línea para resaltar urgencia
+    font-weight: 600;
+  }
+}
+
+// La misma doble línea pero adaptada a la tarjeta
+.lineas-decorativas-card {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(
+    to right, // Esta vez de izquierda a derecha para variar el diseño
+    #f25c05 0%, #f25c05 50%, 
+    #d90429 50%, #d90429 100%
+  );
+}
+
+// Estilo para los textos fuera de la tarjeta
+.titulo {
+  color: #051630;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.subtitulo {
+  color: #666;
+  font-size: 0.9rem;
+}

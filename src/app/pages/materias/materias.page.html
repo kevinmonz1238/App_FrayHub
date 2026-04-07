@@ -63,7 +63,7 @@
       <ion-card-content>
         <p>Temas: Verb to be, Read, Write</p>
         <ion-button expand="block" routerLink="/tareas" class="ion-margin-bottom">Ver tareas</ion-button>
-        <ion-button expand="block" fill="outline" color="secondary" routerLink="/material-apoyo">
+        <ion-button expand="block" fill="outline" color="secondary" routerLink="/apoyo">
           <ion-icon name="document-text-outline" slot="start"></ion-icon>
           Material de apoyo
         </ion-button>
@@ -72,18 +72,27 @@
   </div>
 
   <div *ngIf="segmento === 'pendientes'">
-    <h1 class="titulo">Actividades Pendientes</h1>
-    <p class="subtitulo">Tareas que requieren tu atención inmediata</p>
+  <h1 class="titulo">Actividades Pendientes</h1>
+  <p class="subtitulo">Tareas que requieren tu atención inmediata</p>
+  
+  <ion-card class="card-pendiente">
+    <div class="lineas-decorativas-card"></div>
     
-    <ion-card color="warning">
-      <ion-card-header>
-        <ion-card-title>Proyecto Final</ion-card-title>
-        <ion-card-subtitle>Entrega en 2 días</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        Recuerda subir el archivo PDF antes de la medianoche.
-      </ion-card-content>
-    </ion-card>
-  </div>
+    <ion-card-header>
+      <ion-card-title>Proyecto Final</ion-card-title>
+      <ion-card-subtitle>Entrega en 2 días</ion-card-subtitle>
+    </ion-card-header>
+    
+    <ion-card-content>
+      Recuerda subir el archivo PDF antes de la medianoche.
+      
+      <ion-button expand="block" fill="clear" color="danger" class="ion-margin-top">
+        <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+        Urgente
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
 
 </ion-content>

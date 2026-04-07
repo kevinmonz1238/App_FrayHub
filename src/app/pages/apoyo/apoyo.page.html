@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="header-apoyo">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/materias" color="light" text="Atrás">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios">APOYO ESCOLAR</ion-title>
+  </ion-toolbar>
+
+  <div class="lineas-decorativas"></div>
+</ion-header>
+
+<ion-content class="ion-padding fondo">
+  <h1 class="titulo">Material de Apoyo</h1>
+  <p class="subtitulo">Recursos multimedia para tus tareas</p>
+
+  <ion-card class="card-apoyo">
+    <div class="lineas-decorativas-card"></div>
+
+    <ion-card-header>
+      <ion-card-subtitle>MATEMÁTICAS</ion-card-subtitle>
+      <ion-card-title>Ecuaciones de Primer Grado</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Revisa este video explicativo y la guía en PDF para resolver tus ejercicios.</p>
+
+      <ion-list lines="none" class="ion-margin-top">
+        <ion-item class="item-recurso">
+          <ion-icon name="videocam-outline" slot="start" color="primary"></ion-icon>
+          <ion-label>Video: Introducción a Álgebra</ion-label>
+          <ion-button fill="clear" slot="end">Ver</ion-button>
+        </ion-item>
+
+        <ion-item class="item-recurso">
+          <ion-icon name="document-outline" slot="start" color="danger"></ion-icon>
+          <ion-label>PDF: Guía de ejercicios</ion-label>
+          <ion-button fill="clear" slot="end">Bajar</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

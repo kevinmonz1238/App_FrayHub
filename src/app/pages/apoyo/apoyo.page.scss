@@ -1,0 +1,42 @@
+.header-apoyo {
+  --background: #051630;
+  --color: white;
+  ion-title { font-weight: bold; }
+}
+
+.lineas-decorativas {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to bottom, #f25c05 50%, #d90429 50%);
+}
+
+.card-apoyo {
+  --background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-top: 20px;
+
+  ion-card-subtitle {
+    color: #f25c05; // Naranja para la materia
+    font-weight: bold;
+  }
+  
+  ion-card-title {
+    color: #051630;
+    font-weight: 800;
+  }
+}
+
+.lineas-decorativas-card {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to right, #f25c05 50%, #d90429 50%);
+}
+
+.item-recurso {
+  --background: #f8f9fa;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
