@@ -13,8 +13,9 @@ import { ActividadPage } from './actividad.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ActividadPageRoutingModule
+    ActividadPageRoutingModule,
+    ActividadPage
   ],
-  declarations: [ActividadPage]
+  declarations: []
 })
 export class ActividadPageModule {}

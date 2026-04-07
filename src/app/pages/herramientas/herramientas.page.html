@@ -1,13 +1,182 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>herramientas</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="herramientas-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Herramientas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">herramientas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="herramientas-content">
+
+  <!-- Hero -->
+  <div class="hero-section">
+    <div class="hero-info">
+      <span class="hero-emoji">🛠️</span>
+      <h1>Centro de Recursos</h1>
+      <p>Materiales, tareas y contenido educativo en un solo lugar.</p>
+    </div>
+    <div class="hero-decoration"></div>
+  </div>
+
+  <!-- Accesos rápidos -->
+  <div class="quick-access">
+    <div class="access-card" (click)="scrollTo('materiales')">
+      <div class="access-icon materiales-bg">📚</div>
+      <span>Materiales</span>
+    </div>
+    <div class="access-card" (click)="goToTareas()">
+      <div class="access-icon tareas-bg">📝</div>
+      <span>Tareas</span>
+    </div>
+    <div class="access-card" (click)="scrollTo('contenido')">
+      <div class="access-icon contenido-bg">🎓</div>
+      <span>Contenido</span>
+    </div>
+  </div>
+
+  <!-- SECCIÓN: Materiales -->
+  <section class="resource-section" id="materiales">
+    <div class="section-header">
+      <h2>📚 Materiales de Estudio</h2>
+      <button class="btn-add" (click)="toggleAddMaterial()">
+        <ion-icon name="add-outline"></ion-icon> Agregar
+      </button>
+    </div>
+
+    <!-- Form agregar material -->
+    <div class="add-form" *ngIf="showAddMaterial">
+      <div class="form-group">
+        <label>Nombre del material</label>
+        <input type="text" [(ngModel)]="newMaterial.name" placeholder="Ej: Guía de Álgebra" />
+      </div>
+      <div class="form-row">
+        <div class="half">
+          <label>Materia</label>
+          <select [(ngModel)]="newMaterial.subject">
+            <option value="Matemáticas">Matemáticas</option>
+            <option value="Español">Español</option>
+            <option value="Ciencias">Ciencias</option>
+            <option value="Historia">Historia</option>
+            <option value="Inglés">Inglés</option>
+          </select>
+        </div>
+        <div class="half">
+          <label>Tipo</label>
+          <select [(ngModel)]="newMaterial.type">
+            <option value="PDF">PDF</option>
+            <option value="Video">Video</option>
+            <option value="Enlace">Enlace</option>
+            <option value="Documento">Documento</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Zona de archivo -->
+      <div class="file-drop-zone"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           (drop)="onDrop($event)"
+           [class.drag-active]="isDragging"
+           (click)="fileInput.click()">
+        <ion-icon name="cloud-upload-outline"></ion-icon>
+        <p>Arrastra un archivo o <span>haz clic aquí</span></p>
+        <input #fileInput type="file" hidden (change)="onFileSelected($event)" />
+      </div>
+      <div class="uploaded-file" *ngIf="newMaterial.file">
+        <ion-icon name="document-outline"></ion-icon>
+        <span>{{ newMaterial.file.name }} ({{ formatSize(newMaterial.file.size) }})</span>
+        <button (click)="newMaterial.file = null">✕</button>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-cancel" (click)="showAddMaterial = false">Cancelar</button>
+        <button class="btn-save" (click)="saveMaterial()">Guardar</button>
+      </div>
+    </div>
+
+    <!-- Lista de materiales -->
+    <div class="material-card" *ngFor="let mat of materials; let i = index">
+      <div class="material-icon" [ngClass]="mat.type.toLowerCase()">
+        {{ getTypeIcon(mat.type) }}
+      </div>
+      <div class="material-info">
+        <h4>{{ mat.name }}</h4>
+        <div class="material-meta">
+          <span class="subject-tag" [style.background]="getSubjectColor(mat.subject)">{{ mat.subject }}</span>
+          <span class="type-badge">{{ mat.type }}</span>
+        </div>
+      </div>
+      <div class="material-actions">
+        <button class="btn-action download" (click)="downloadMaterial(mat)">
+          <ion-icon name="download-outline"></ion-icon>
+        </button>
+        <button class="btn-action delete" (click)="deleteMaterial(i)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="empty-mini" *ngIf="materials.length === 0">
+      <p>📂 No hay materiales aún. ¡Agrega el primero!</p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: Tareas (vinculada) -->
+  <section class="resource-section" id="tareas">
+    <div class="section-header">
+      <h2>📝 Tareas Pendientes</h2>
+      <button class="btn-link" (click)="goToTareas()">
+        Ver todas <ion-icon name="arrow-forward-outline"></ion-icon>
+      </button>
+    </div>
+
+    <div class="task-preview-card" *ngFor="let task of recentTasks">
+      <div class="task-status-dot" [ngClass]="task.status"></div>
+      <div class="task-preview-info">
+        <h4>{{ task.title }}</h4>
+        <span class="task-date">
+          <ion-icon name="calendar-outline"></ion-icon> {{ task.date }}
+        </span>
+      </div>
+      <span class="status-badge" [ngClass]="task.status">{{ getStatusLabel(task.status) }}</span>
+    </div>
+
+    <div class="go-tasks-banner" (click)="goToTareas()">
+      <div class="banner-content">
+        <ion-icon name="rocket-outline"></ion-icon>
+        <div>
+          <h4>Gestiona tus tareas</h4>
+          <p>Crea, edita y organiza todas tus actividades</p>
+        </div>
+      </div>
+      <ion-icon name="chevron-forward-outline" class="banner-arrow"></ion-icon>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: Contenido Educativo -->
+  <section class="resource-section" id="contenido">
+    <div class="section-header">
+      <h2>🎓 Contenido Educativo</h2>
+    </div>
+
+    <div class="content-grid">
+      <div class="content-card" *ngFor="let item of educationalContent" (click)="openContent(item)">
+        <div class="content-thumbnail" [style.background]="item.gradient">
+          <span class="content-emoji">{{ item.icon }}</span>
+        </div>
+        <div class="content-details">
+          <span class="content-category">{{ item.category }}</span>
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.description }}</p>
+          <div class="content-footer">
+            <span class="duration"><ion-icon name="time-outline"></ion-icon> {{ item.duration }}</span>
+            <span class="level-badge" [ngClass]="item.level">{{ item.level }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </ion-content>
+

@@ -13,8 +13,9 @@ import { HerramientasPage } from './herramientas.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    HerramientasPageRoutingModule
+    HerramientasPageRoutingModule,
+    HerramientasPage
   ],
-  declarations: [HerramientasPage]
+  declarations: []
 })
 export class HerramientasPageModule {}
