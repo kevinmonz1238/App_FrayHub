@@ -1,75 +1,89 @@
- <ion-header>
-  <ion-toolbar>
-    <ion-title>Materias</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="header-inicio">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
+    <ion-title mode="ios">MATERIAS </ion-title>
   </ion-toolbar>
+  
+  <div class="lineas-decorativas"></div>
 
-  <!-- Segmentos -->
-  <ion-segment (ionChange)="cambiarSegmento($event)">
-    <ion-segment-button value="materias">
-      <ion-label>Materias</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="biblioteca" >
-      <ion-label>Biblioteca</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-toolbar>
+    <ion-segment [value]="segmento" (ionChange)="cambiarSegmento($event)">
+      <ion-segment-button value="materias">
+        <ion-label>Mis Materias</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pendientes">
+        <ion-label>Pendientes</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
-
 <ion-content class="ion-padding fondo">
 
-  <h1 class="titulo">Mis Materias</h1>
-  <p class="subtitulo">Consulta información de tus asignaturas</p>
+  <div *ngIf="segmento === 'materias'">
+    <h1 class="titulo">Mis Materias</h1>
+    <p class="subtitulo">Consulta información de tus asignaturas</p>
 
-  <!-- MATEMÁTICAS -->
-  <ion-card class="card-mate">
-    <ion-card-header>
-      <ion-card-title> Matemáticas</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Temas: Álgebra, fracciones, ecuaciones</p>
-      <ion-button expand="block" routerLink="/tareas">
-        Ver tareas
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- ESPAÑOL -->
-  <ion-card class="card-espanol">
-    <ion-card-header>
-      <ion-card-title>Español</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Temas: Lectura, redacción, literatura</p>
-      <ion-button expand="block" routerLink="/tareas">
-        Ver tareas
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- INGLÉS -->
-  <ion-card class="card-ingles">
-    <ion-card-header>
-      <ion-card-title> Inglés</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Temas: Grammar, vocabulary, speaking</p>
-      <ion-button expand="block" routerLink="/tareas">
-        Ver tareas
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+    <ion-card class="card-mate">
+      <ion-card-header>
+        <ion-card-title>Matemáticas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Temas: Álgebra, fracciones, ecuaciones</p>
+        <ion-button expand="block" routerLink="/tareas" class="ion-margin-bottom">Ver tareas</ion-button>
+        <ion-button expand="block" fill="outline" color="secondary" routerLink="/material-apoyo">
+          <ion-icon name="document-text-outline" slot="start"></ion-icon>
+          Material de apoyo
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
 
 
-  <!-- segmentos --------------------------------------------------------->
+    <ion-card class="card-mate">
+      <ion-card-header>
+        <ion-card-title>Español</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Temas: Literatura, Redacción, Oratoria</p>
+        <ion-button expand="block" routerLink="/tareas" class="ion-margin-bottom">Ver tareas</ion-button>
+        <ion-button expand="block" fill="outline" color="secondary" routerLink="/material-apoyo">
+          <ion-icon name="document-text-outline" slot="start"></ion-icon>
+          Material de apoyo
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
 
- 
 
 
+    <ion-card class="card-mate">
+      <ion-card-header>
+        <ion-card-title>Ingles</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Temas: Verb to be, Read, Write</p>
+        <ion-button expand="block" routerLink="/tareas" class="ion-margin-bottom">Ver tareas</ion-button>
+        <ion-button expand="block" fill="outline" color="secondary" routerLink="/material-apoyo">
+          <ion-icon name="document-text-outline" slot="start"></ion-icon>
+          Material de apoyo
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="segmento === 'pendientes'">
+    <h1 class="titulo">Actividades Pendientes</h1>
+    <p class="subtitulo">Tareas que requieren tu atención inmediata</p>
+    
+    <ion-card color="warning">
+      <ion-card-header>
+        <ion-card-title>Proyecto Final</ion-card-title>
+        <ion-card-subtitle>Entrega en 2 días</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Recuerda subir el archivo PDF antes de la medianoche.
+      </ion-card-content>
+    </ion-card>
+  </div>
 
 </ion-content>

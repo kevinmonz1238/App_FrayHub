@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MateriasPage implements OnInit {
 
+  // Esta variable debe coincidir con la que usas en el [value] de tu HTML
   segmento: string = 'materias';
 
   constructor(private router: Router) { }
@@ -16,24 +17,21 @@ export class MateriasPage implements OnInit {
   ngOnInit() {
   }
 
-  // cambiarSegmento(event: any) {
-  //   const valor = event.detail.value;
-
-  //   if (valor === 'biblioteca') {
-  //     this.router.navigate(['/biblioteca']);
-  //   }
-  // }
-
-
   cambiarSegmento(event: any) {
-  const valor = event.detail.value;
-  this.segmento = valor;
+    const valor = event.detail.value;
+    
+    // Actualizamos la variable para que el *ngIf del HTML reaccione
+    this.segmento = valor;
 
-  if (valor === 'biblioteca') {
-    setTimeout(() => {
-      this.router.navigate(['/biblioteca']);
-    }, 150);
+    // Lógica para navegar si eligen 'biblioteca'
+    if (valor === 'biblioteca') {
+      setTimeout(() => {
+        this.router.navigate(['/biblioteca']);
+        
+        // Tip: regresamos el segmento a 'materias' para que cuando el usuario 
+        // vuelva atrás, no se quede trabado en el segmento de biblioteca.
+        this.segmento = 'materias'; 
+      }, 150);
+    }
   }
-}
-
 }

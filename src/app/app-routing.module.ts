@@ -23,10 +23,7 @@ const routes: Routes = [
     path: 'materias',
     loadChildren: () => import('./pages/materias/materias.module').then( m => m.MateriasPageModule)
   },
-  {
-    path: 'biblioteca',
-    loadChildren: () => import('./pages/biblioteca/biblioteca.module').then( m => m.BibliotecaPageModule)
-  }
+ 
 
 ];
 @NgModule({

@@ -115,3 +115,30 @@ ion-segment-button::part(indicator) {
 ion-header {
   box-shadow: none !important;
 }
+
+// Quitar la sombra predeterminada de Ionic
+ion-header {
+  --ion-background: #0a1931; // El azul oscuro de tu imagen
+}
+
+.mi-header-custom {
+  --background: #0a1931;
+  --color: white;
+  
+  ion-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+}
+
+// La línea doble (Naranja y Roja)
+.borde-gradiente {
+  height: 4px; // Grosor total de la línea
+  width: 100%;
+  background: linear-gradient(
+    to bottom, 
+    #ff6600 0%, #ff6600 50%, // Naranja arriba
+    #cc0000 50%, #cc0000 100% // Rojo abajo
+  );
+}
