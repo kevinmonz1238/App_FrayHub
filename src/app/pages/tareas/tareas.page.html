@@ -39,8 +39,7 @@
     </div>
 
     <!-- Zona de archivos -->
-    <div class="file-upload-zone" (click)="fileInput.click()" 
-         (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+    <div class="file-upload-zone" (click)="fileInput.click()" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
       <input #fileInput type="file" multiple hidden (change)="onFilesSelected($event)" />
       <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon>
       <p class="upload-text">Arrastra archivos aquí o <span>selecciona</span></p>
@@ -84,13 +83,12 @@
 
   <!-- Lista de tareas -->
   <div class="tasks-list">
-    <div class="task-card" *ngFor="let tarea of tareas; let i = index"
-         [class.completed]="tarea.completada">
+    <div class="task-card" *ngFor="let tarea of tareas; let i = index" [class.completed]="tarea.completada">
 
       <div class="task-header">
         <div class="task-check" (click)="toggleComplete(i)">
           <ion-icon [name]="tarea.completada ? 'checkmark-circle' : 'ellipse-outline'"
-                    [class.checked]="tarea.completada"></ion-icon>
+            [class.checked]="tarea.completada"></ion-icon>
         </div>
         <div class="task-info">
           <h4 class="task-title">{{ tarea.titulo }}</h4>
@@ -106,12 +104,12 @@
       <p class="task-desc" *ngIf="tarea.descripcion">{{ tarea.descripcion }}</p>
 
       <!-- Archivos adjuntos -->
-<div class="task-files" *ngIf="tarea.archivos && tarea.archivos.length > 0">
-  <div class="attached-file" *ngFor="let file of tarea.archivos">
-    <ion-icon [name]="getFileIcon(file.name)"></ion-icon>
-    <span>{{ file.name }}</span>
-  </div>
-</div>
+      <div class="task-files" *ngIf="tarea.archivos && tarea.archivos.length > 0">
+        <div class="attached-file" *ngFor="let file of tarea.archivos">
+          <ion-icon [name]="getFileIcon(file.name)"></ion-icon>
+          <span>{{ file.name }}</span>
+        </div>
+      </div>
 
       <div class="task-footer">
         <span class="task-date">
@@ -132,4 +130,10 @@
     <p>Toca el botón <strong>+</strong> para agregar tu primera tarea</p>
   </div>
 
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="toggleForm()" class="fab-agregar">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>

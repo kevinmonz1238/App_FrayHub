@@ -237,3 +237,50 @@
   font-size: 40px;
   color: #0a1f44;
 }
+
+.fab-agregar {
+  // 1. Fondo del botón (Azul marino de tu app)
+  --background: #051630; 
+  --color: white;
+  --box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  
+  // Crítico para que el borde blanco fino no se corte
+  overflow: visible; 
+
+  // 2. Ocultamos el icono de '+' original
+  ion-icon {
+    display: none;
+  }
+
+  // 3. Creamos la 'U' Varsity perfectamente centrada
+  &::after {
+    content: 'U'; 
+    // Usamos la fuente Graduate que importamos en global.scss
+    font-family: 'Graduate', 'Georgia', serif; 
+    font-weight: 900;
+    // Tamaño grande para que llene el botón
+    font-size: 34px; 
+    // Color de la letra: Naranja de tu app
+    color: #f25c05; 
+    
+    // CENTRADO ABSOLUTO (No tocar)
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    // EFECTO DE BORDE FINO BLANCO (Múltiples sombras compactas)
+    // Esto recrea el contorno limpio de la 'U' de tu imagen.
+    text-shadow: 
+      -1px -1px 0 #fff,  
+       1px -1px 0 #fff,
+      -1px  1px 0 #fff,
+       1px  1px 0 #fff;
+  }
+}
+
+// Efecto de presión
+.fab-agregar:active {
+  transform: scale(0.9);
+  transition: 0.1s;
+}
