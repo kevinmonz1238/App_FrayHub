@@ -26,6 +26,14 @@ const routes: Routes = [
     path: 'apoyo',
     loadChildren: () => import('./pages/apoyo/apoyo.module').then( m => m.ApoyoPageModule)
   },
+  {
+    path: 'actividad',
+    loadChildren: () => import('./pages/actividad/actividad.module').then( m => m.ActividadPageModule)
+  },
+  {
+    path: 'herramientas',
+    loadChildren: () => import('./pages/herramientas/herramientas.module').then( m => m.HerramientasPageModule)
+  },
 
   
 
