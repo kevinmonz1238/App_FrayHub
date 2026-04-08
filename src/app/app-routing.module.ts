@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'materias',
     loadChildren: () => import('./pages/materias/materias.module').then( m => m.MateriasPageModule)
-  },  {
+  },
+  {
     path: 'apoyo',
     loadChildren: () => import('./pages/apoyo/apoyo.module').then( m => m.ApoyoPageModule)
   },
@@ -34,7 +35,7 @@ const routes: Routes = [
     path: 'herramientas',
     loadChildren: () => import('./pages/herramientas/herramientas.module').then( m => m.HerramientasPageModule)
   },
-
+  
   
 
  
