@@ -38,3 +38,37 @@
 
 // global.scss
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+/* Estilo Global para el Header Retro */
+.actividad-toolbar {
+  --background: #001a3d !important; // Azul oscuro de la imagen
+  --color: #ffffff !important;      // Texto blanco
+  --border-style: none !important;
+  position: relative;
+  overflow: visible;
+
+  ion-title {
+    color: #ffffff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  ion-menu-button {
+    --color: #ffffff !important; // Hamburguesa blanca
+  }
+
+  // La doble línea (naranja y roja) de la imagen
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #ff8c00 0%, #ff4500 50%, #ff0000 100%) !important;
+    z-index: 10;
+  }
+}

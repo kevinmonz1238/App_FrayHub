@@ -1,0 +1,165 @@
+/* --- IMPORTANTE: Definición Global/Local del Header Retro --- */
+.actividad-toolbar {
+  --background: #001a3d !important;
+  --color: #ffffff !important;
+  --border-style: none;
+  position: relative;
+  overflow: visible;
+
+  ion-title {
+    color: #ffffff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  ion-menu-button {
+    --color: #ffffff !important;
+  }
+
+  // La doble línea decorativa de la imagen
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #ff8c00 0%, #ff4500 50%, #ff0000 100%) !important;
+    z-index: 10;
+  }
+}
+
+/* --- Estilos del Contenido de la Página --- */
+.aula-content {
+  // Fondo de página gris muy claro
+  --background: #f4f6f9; 
+  
+  .main-header {
+    h2 {
+      color: #001a3d; // El azul marino profundo
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 0;
+    }
+    p {
+      color: #707070;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* --- Estilos de la Tarjeta (Card) --- */
+.aula-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; // Sombra suave
+  margin-bottom: 20px;
+  overflow: hidden; // Para que el acento no sobresalga feo
+
+  // La barra de acento lateral naranja
+  .card-accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    // Usamos el mismo naranja que en el header
+    background: #ff8c00; 
+  }
+
+  ion-card-header {
+    padding-left: 20px; // Dejamos espacio para el acento
+    padding-bottom: 10px;
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      ion-badge {
+        // Combinación retro: Naranja claro con texto oscuro
+        --background: #fff3e0; 
+        color: #ff8c00;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border-radius: 6px;
+      }
+
+      .timestamp {
+        color: #9e9e9e;
+        font-size: 0.75rem;
+      }
+    }
+
+    ion-card-title {
+      color: #001a3d; // Azul marino profundo
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    ion-card-subtitle {
+      color: #ff4500; // Tono más rojizo del header para contraste
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  ion-card-content {
+    padding-left: 10px;
+    padding-top: 0;
+    padding-bottom: 10px;
+    
+    .aula-item {
+      --background: transparent;
+      --padding-start: 0;
+      --min-height: 48px;
+
+      ion-icon {
+        // Usamos el azul marino profundo para los iconos
+        color: #001a3d !important; 
+        font-size: 1.3rem;
+        margin-right: 12px;
+      }
+
+      ion-label {
+        h3 {
+          color: #707070;
+          font-size: 0.8rem;
+          margin-bottom: 0px;
+        }
+        p {
+          color: #001a3d;
+          font-weight: 600;
+          font-size: 0.95rem;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .card-footer {
+    background: #fcfcfc;
+    border-top: 1px solid #eeeeee !important;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 8px;
+
+    ion-button {
+      // Usamos el naranja brillante para los botones de acción
+      --color: #ff8c00 !important;
+      font-weight: bold;
+    }
+  }
+}

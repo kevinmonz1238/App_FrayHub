@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'herramientas',
     loadChildren: () => import('./pages/herramientas/herramientas.module').then( m => m.HerramientasPageModule)
+  },  {
+    path: 'aula',
+    loadChildren: () => import('./pages/aula/aula.module').then( m => m.AulaPageModule)
   },
+
   
   
 
