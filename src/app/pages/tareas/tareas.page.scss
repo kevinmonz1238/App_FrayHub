@@ -1,286 +1,70 @@
-/* ===== HEADER ===== */
 .header-toolbar {
-  --background: #0a1f44;
-  --color: #ffffff;
-  border-bottom: 3px solid #ff6b00;
+  --background: #001a3d;
+  --color: white;
+  border-bottom: 3px solid #ff8c00;
 }
 
-.header-title {
-  font-weight: bold;
-  text-align: center;
-}
-
-.add-btn {
-  --color: #ffffff;
-}
-
-/* ===== FONDO ===== */
 .tareas-content {
-  --background: #f5f7fb;
+  --background: #f8f9fa;
 }
 
-/* ===== FORMULARIO ===== */
+/* Formulario */
 .new-task-card {
-  background: #ffffff;
-  padding: 15px;
+  background: white;
   border-radius: 15px;
-  margin-bottom: 20px;
-  border-left: 5px solid #ff6b00;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+
+  .input-group {
+    margin-bottom: 15px;
+    label { display: block; color: #001a3d; font-weight: 600; margin-bottom: 5px; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      outline: none;
+      &:focus { border-color: #ff8c00; }
+    }
+  }
 }
 
-.form-title {
-  color: #0a1f44;
-  margin-bottom: 10px;
-}
-
-/* Inputs */
-.input-group {
-  margin-bottom: 10px;
-}
-
-.input-group label {
-  font-size: 13px;
-  color: #555;
-}
-
-.input-group input,
-.input-group textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-top: 5px;
-}
-
-/* Upload */
+/* Zona de Carga de Archivos */
 .file-upload-zone {
-  border: 2px dashed #ff6b00;
-  padding: 15px;
+  border: 2px dashed #ff8c00;
+  border-radius: 12px;
+  padding: 25px;
   text-align: center;
-  border-radius: 10px;
-  margin-top: 10px;
+  background: #fff9f2;
+  transition: all 0.3s ease;
   cursor: pointer;
+
+  &:hover { background: #fff1e0; }
+  .upload-icon { font-size: 40px; color: #ff8c00; }
+  .upload-text span { color: #ff8c00; font-weight: bold; text-decoration: underline; }
 }
 
-.upload-icon {
-  font-size: 30px;
-  color: #ff6b00;
-}
-
-.upload-text span {
-  color: #0a1f44;
-  font-weight: bold;
-}
-
-/* Archivos */
-.file-chip {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 8px;
-  margin-top: 5px;
-}
-
-.file-icon {
-  color: #ff6b00;
-}
-
-.remove-file {
-  color: #d90429;
-  margin-left: auto;
-}
-
-/* Botones form */
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.btn-cancel {
-  background: #ddd;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-.btn-save {
-  background: #0a1f44;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-/* ===== STATS ===== */
-.stats-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.stat-pill {
-  background: #0a1f44;
-  color: #fff;
-  padding: 8px;
-  border-radius: 10px;
-  text-align: center;
-  flex: 1;
-  margin: 0 3px;
-}
-
-.stat-pill.pendiente {
-  background: #ff6b00;
-}
-
-.stat-pill.completada {
-  background: #d90429;
-}
-
-/* ===== TARJETAS ===== */
+/* Cards de Tarea */
 .task-card {
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-left: 5px solid #0a1f44;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
+  background: white;
+  border-radius: 12px;
+  margin: 12px;
+  padding: 15px;
+  border-left: 5px solid #ff8c00;
+  transition: 0.2s;
 
-/* Completada */
-.task-card.completed {
-  opacity: 0.7;
-  border-left: 5px solid #d90429;
-}
+  &.completed {
+    border-left-color: #2dd36f;
+    opacity: 0.8;
+    .task-title { text-decoration: line-through; color: #888; }
+  }
 
-/* Header tarea */
-.task-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Check */
-.task-check ion-icon {
-  font-size: 24px;
-  color: #ff6b00;
-}
-
-.task-check ion-icon.checked {
-  color: #d90429;
-}
-
-/* Info */
-.task-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #0a1f44;
-}
-
-.task-materia {
-  font-size: 12px;
-  color: #666;
-}
-
-/* Botón eliminar */
-.action-btn.delete {
-  background: transparent;
-  color: #d90429;
-}
-
-/* Descripción */
-.task-desc {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #444;
-}
-
-/* Archivos adjuntos */
-.attached-file {
-  display: flex;
-  gap: 5px;
-  font-size: 13px;
-  color: #555;
-  margin-top: 5px;
-}
-
-/* Footer */
-.task-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.task-date {
-  color: #666;
-}
-
-.task-status {
-  font-weight: bold;
-  color: #ff6b00;
-}
-
-.task-status.done {
-  color: #d90429;
-}
-
-/* ===== EMPTY ===== */
-.empty-state {
-  text-align: center;
-  margin-top: 40px;
-  color: #888;
-}
-
-.empty-state ion-icon {
-  font-size: 40px;
-  color: #0a1f44;
+  .task-title { color: #001a3d; font-weight: bold; font-size: 1.1rem; }
+  .task-materia { color: #ff4500; font-size: 0.85rem; font-weight: 500; }
 }
 
 .fab-agregar {
-  // 1. Fondo del botón (Azul marino de tu app)
-  --background: #051630; 
+  --background: #ff8c00;
   --color: white;
-  --box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  
-  // Crítico para que el borde blanco fino no se corte
-  overflow: visible; 
-
-  // 2. Ocultamos el icono de '+' original
-  ion-icon {
-    display: none;
-  }
-
-  // 3. Creamos la 'U' Varsity perfectamente centrada
-  &::after {
-    content: 'U'; 
-    // Usamos la fuente Graduate que importamos en global.scss
-    font-family: 'Graduate', 'Georgia', serif; 
-    font-weight: 900;
-    // Tamaño grande para que llene el botón
-    font-size: 34px; 
-    // Color de la letra: Naranja de tu app
-    color: #f25c05; 
-    
-    // CENTRADO ABSOLUTO (No tocar)
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    
-    // EFECTO DE BORDE FINO BLANCO (Múltiples sombras compactas)
-    // Esto recrea el contorno limpio de la 'U' de tu imagen.
-    text-shadow: 
-      -1px -1px 0 #fff,  
-       1px -1px 0 #fff,
-      -1px  1px 0 #fff,
-       1px  1px 0 #fff;
-  }
-}
-
-// Efecto de presión
-.fab-agregar:active {
-  transform: scale(0.9);
-  transition: 0.1s;
 }

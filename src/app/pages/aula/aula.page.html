@@ -16,18 +16,23 @@
 
   <div class="main-header ion-padding-bottom">
     <h2>Gestión de Salones</h2>
-    <p>Listado dinámico desde la base de datos.</p>
+    <p>Listado dinámico de grupos académicos.</p>
   </div>
 
   <div class="cards-container">
     
+    <div *ngIf="cargando" class="ion-text-center ion-padding">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <p>Consultando base de datos...</p>
+    </div>
+
     <ion-card class="aula-card" *ngFor="let item of grupos">
       <div class="card-accent"></div>
       
       <ion-card-header>
         <div class="card-meta">
-          <ion-badge color="warning">Grado: {{ item.grado }}°</ion-badge>
-          <small class="timestamp">ID Plantel: {{ item.plantel_id }}</small>
+          <ion-badge color="warning">{{ item.grado }}° Grado</ion-badge>
+          <small class="timestamp">ID: #{{ item.id }}</small>
         </div>
         <ion-card-title>{{ item.nombre }}</ion-card-title>
       </ion-card-header>
@@ -35,34 +40,34 @@
       <ion-card-content>
         <ion-list lines="none">
           <ion-item class="aula-item">
-            <ion-icon slot="start" name="easel-outline" color="primary"></ion-icon>
+            <ion-icon slot="start" name="business-outline"></ion-icon>
             <ion-label>
-              <h3>Aula Asignada</h3>
-              <p>{{ item.aula }}</p>
+              <h3>Aula / Salón</h3>
+              <p>{{ item.aula || 'No asignada' }}</p>
             </ion-label>
           </ion-item>
           
           <ion-item class="aula-item">
-            <ion-icon slot="start" name="people-circle-outline" color="primary"></ion-icon>
+            <ion-icon slot="start" name="people-outline"></ion-icon>
             <ion-label>
-              <h3>Capacidad Máxima</h3>
-              <p>{{ item.capacidad_maxima }} personas</p>
+              <h3>Capacidad</h3>
+              <p>{{ item.capacidad_maxima }} alumnos</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-card-content>
       
       <ion-footer class="ion-no-border card-footer">
-        <ion-button fill="clear" color="secondary" size="small">
+        <ion-button fill="clear" size="small">
           <ion-icon slot="start" name="create-outline"></ion-icon>
-          Editar Registro
+          Editar
         </ion-button>
       </ion-footer>
     </ion-card>
 
-    <div *ngIf="grupos.length === 0" class="ion-text-center">
-      <ion-spinner name="dots"></ion-spinner>
-      <p>Esperando respuesta de la base de datos...</p>
+    <div *ngIf="!cargando && grupos.length === 0" class="ion-text-center ion-padding">
+      <ion-icon name="alert-circle-outline" style="font-size: 3rem; color: #ccc;"></ion-icon>
+      <p>No se encontraron grupos registrados.</p>
     </div>
 
   </div>

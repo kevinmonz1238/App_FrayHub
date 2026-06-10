@@ -7,57 +7,59 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   standalone: false, // Indica que no es un componente independiente
-  selector: 'app-aula', // Nombre del selector del componente
-  templateUrl: './aula.page.html', // Archivo HTML asociado
-  styleUrls: ['./aula.page.scss'], // Archivo de estilos
+  selector: 'app-horarios', // Nombre del selector del componente
+  templateUrl: './horarios.page.html', // Archivo HTML asociado
+  styleUrls: ['./horarios.page.scss'], // Archivo de estilos
 })
-export class AulaPage implements OnInit {
+export class HorariosPage implements OnInit {
 
   // Cliente de Supabase
   private supabase: SupabaseClient;
 
-  // Arreglo donde se almacenan los grupos obtenidos de la base de datos
-  public grupos: any[] = [];
+  // Arreglo donde se almacenan los horarios obtenidos de la base de datos
+  public horarios: any[] = [];
 
   // Variable para controlar el estado de carga (spinner)
   public cargando: boolean = true;
 
   constructor() {
-    // Inicializa la conexión con Supabase usando las variables de entorno
+    // Inicializa la conexión con Supabase usando variables de entorno
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
   }
 
   // Método que se ejecuta al iniciar el componente
   ngOnInit() {
-    this.cargarDatos();
+    this.cargarHorarios();
   }
 
-  // Método para obtener los datos desde la base de datos
-  async cargarDatos() {
+  // Método para obtener los horarios desde la base de datos
+  async cargarHorarios() {
 
     // Activa el indicador de carga
     this.cargando = true;
 
     try {
-      // Consulta a la tabla 'academic_grupo'
+      // Consulta a la tabla 'academic_horarioclase'
       const { data, error } = await this.supabase
-        .from('academic_grupo')
+        .from('academic_horarioclase')
         .select('*')
-        .order('nombre', { ascending: true }); // Ordena los resultados por nombre
+
+        // Filtra solo los registros activos
+        .eq('activo', true)
+
+        // Ordena los resultados por día
+        .order('dia', { ascending: true });
 
       // Si ocurre un error, se lanza
       if (error) throw error;
 
-      // Guarda los datos obtenidos en el arreglo
-      this.grupos = data || [];
-
-      // Muestra los datos en consola
-      console.log('Datos recibidos:', this.grupos);
+      // Guarda los datos en el arreglo
+      this.horarios = data || [];
 
     } catch (error: any) {
 
       // Manejo de errores
-      console.error('Error en Supabase:', error.message);
+      console.error('Error:', error.message);
 
     } finally {
 

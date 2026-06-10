@@ -1,42 +1,87 @@
+<!-- Encabezado de la página -->
 <ion-header class="ion-no-border">
+  
+  <!-- Barra superior (toolbar) con estilo personalizado -->
   <ion-toolbar class="header-apoyo">
+    
+    <!-- Botón para regresar a la página anterior -->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/materias" color="light" text="Atrás">
+      <ion-back-button 
+        defaultHref="/materias" 
+        color="light"            
+        text="Atrás">            <!-- Texto del botón -->
       </ion-back-button>
     </ion-buttons>
+
+    <!-- Título principal del encabezado -->
     <ion-title mode="ios">APOYO ESCOLAR</ion-title>
   </ion-toolbar>
 
+  <!-- Elemento decorativo (líneas visuales) -->
   <div class="lineas-decorativas"></div>
 </ion-header>
 
+
+<!-- Contenido principal de la página -->
 <ion-content class="ion-padding fondo">
+  
+  <!-- Título principal -->
   <h1 class="titulo">Material de Apoyo</h1>
+
+  <!-- Subtítulo descriptivo -->
   <p class="subtitulo">Recursos multimedia para tus tareas</p>
 
+  <!-- Tarjeta que contiene el material -->
   <ion-card class="card-apoyo">
+
+    <!-- Elemento decorativo dentro de la tarjeta -->
     <div class="lineas-decorativas-card"></div>
 
+    <!-- Encabezado de la tarjeta -->
     <ion-card-header>
-      <ion-card-subtitle>MATEMÁTICAS</ion-card-subtitle>
-      <ion-card-title>Ecuaciones de Primer Grado</ion-card-title>
+      <ion-card-subtitle>MATEMÁTICAS</ion-card-subtitle> <!-- Materia -->
+      <ion-card-title>Ecuaciones de Primer Grado</ion-card-title> <!-- Tema -->
     </ion-card-header>
 
+    <!-- Contenido de la tarjeta -->
     <ion-card-content>
-      <p>Revisa este video explicativo y la guía en PDF para resolver tus ejercicios.</p>
+      
+      <!-- Descripción del recurso -->
+      <p>
+        Revisa este video explicativo y la guía en PDF para resolver tus ejercicios.
+      </p>
 
+      <!-- Lista de recursos -->
       <ion-list lines="none" class="ion-margin-top">
+
+        <!-- Recurso tipo video -->
         <ion-item class="item-recurso">
-          <ion-icon name="videocam-outline" slot="start" color="primary"></ion-icon>
+          <ion-icon
+            name="videocam-outline" 
+            slot="start" 
+            color="primary">
+          </ion-icon>
+
           <ion-label>Video: Introducción a Álgebra</ion-label>
+
+          <!-- Botón para ver el video -->
           <ion-button fill="clear" slot="end">Ver</ion-button>
         </ion-item>
 
+        <!-- Recurso tipo PDF -->
         <ion-item class="item-recurso">
-          <ion-icon name="document-outline" slot="start" color="danger"></ion-icon>
+          <ion-icon 
+            name="document-outline"  
+            slot="start" 
+            color="danger">
+          </ion-icon>
+
           <ion-label>PDF: Guía de ejercicios</ion-label>
+
+          <!-- Botón para descargar el archivo -->
           <ion-button fill="clear" slot="end">Bajar</ion-button>
         </ion-item>
+
       </ion-list>
     </ion-card-content>
   </ion-card>

@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="ios" class="actividad-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Horarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="calendar-number-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding horario-content">
+
+  <div class="main-header ion-padding-bottom">
+    <h2>Mi Agenda Escolar</h2>
+    <p>Consulta tus clases y aulas asignadas.</p>
+  </div>
+
+  <div *ngIf="cargando" class="ion-text-center ion-padding">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+  </div>
+
+  <div class="cards-container" *ngIf="!cargando">
+    
+    <ion-card class="horario-card" *ngFor="let h of horarios">
+      <div class="card-accent"></div>
+      
+      <ion-card-header>
+        <div class="card-meta">
+          <ion-badge>{{ h.dia }}</ion-badge>
+          <small class="id-tag">ID Grupo: {{ h.grupo_id }}</small>
+        </div>
+        <ion-card-title>ID Asignatura: {{ h.asignatura_id }}</ion-card-title>
+        <ion-card-subtitle>Maestro ID: {{ h.maestro_id }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="info-grid">
+          <div class="time-box">
+            <ion-icon name="time-outline"></ion-icon>
+            <span>{{ h.hora_inicio }} - {{ h.hora_fin }}</span>
+          </div>
+          <div class="room-box">
+            <ion-icon name="location-outline"></ion-icon>
+            <span>Aula: {{ h.aula }}</span>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div *ngIf="horarios.length === 0" class="ion-text-center ion-padding">
+      <p>No hay clases registradas para este periodo.</p>
+    </div>
+
+  </div>
+
+</ion-content>

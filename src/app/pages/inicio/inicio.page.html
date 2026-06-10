@@ -1,55 +1,74 @@
+<!-- Encabezado de la página -->
 <ion-header>
   <ion-toolbar>
+    
+    <!-- Botón del menú lateral (hamburguesa) -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+
+    <!-- Título que aparece en la parte superior -->
     <ion-title>INICIO</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido principal de la pantalla -->
 <ion-content class="fondo">
 
- <div class="footer-container">
-  <div class="background-layer">
-    <img src="assets/img/fondo2_fray.jpg" alt="fondo">
+  <!-- Contenedor del fondo con imagen y logo -->
+  <div class="footer-container">
+
+    <!-- Capa de fondo con imagen -->
+    <div class="background-layer">
+      <img src="assets/img/fondo2_fray.jpg" alt="fondo">
+    </div>
+
+    <!-- Logo flotante sobre el fondo -->
+    <div class="menu-footer floating-logo">
+      <img src="../assets/img/logotipo_lisboa.png" alt="logo">
+    </div>
   </div>
 
-  <div class="menu-footer floating-logo">
-    <img src="../assets/img/logotipo_lisboa.png" alt="logo">
-  </div>
-</div>
-
+  <!-- Contenedor principal del contenido -->
   <div class="container">
 
+    <!-- Título de bienvenida -->
     <h1 class="titulo">Bienvenido a Fray_Hub </h1>
+
+    <!-- Descripción de la aplicación -->
     <p class="subtitulo">
       App oficial para estudiantes, docentes y comunidad educativa de la UNIVERSIDAD LISBOA.
     </p>
 
+    <!-- Tarjeta que redirige a la sección de tareas -->
     <div class="card clickable-card" routerLink="/tareas">
       <div class="lineas-decorativas-card"></div>
       <h2>Tareas Pendientes</h2>
       <p>Presiona para realizar tareas</p>
     </div>
 
+    <!-- Tarjeta que redirige a actividades de clase -->
     <div class="card clickable-card" routerLink="/actividad">
       <div class="lineas-decorativas-card"></div>
       <h2>Actividad de Clases</h2>
       <p>Tienes una nueva actividad en Clases.</p>
     </div>
 
+    <!-- Tarjeta que redirige a herramientas digitales -->
     <div class="card clickable-card" routerLink="/herramientas">
       <div class="lineas-decorativas-card"></div>
       <h2>Herramientas digitales</h2>
       <p>Accede a materiales, tareas y contenido educativo.</p>
     </div>
 
+    <!-- Tarjeta que redirige a la comunidad -->
     <div class="card clickable-card" routerLink="/comunidad">
       <div class="lineas-decorativas-card"></div>
       <h2>Comunidad</h2>
       <p>Conecta con compañeros y participa en actividades.</p>
     </div>
 
+    <!-- Botón que lleva a la página web externa -->
     <ion-button expand="block" class="btn-primary" routerLink="" 
     href="https://universidadlisboa.edu.mx/">
       Explorar más

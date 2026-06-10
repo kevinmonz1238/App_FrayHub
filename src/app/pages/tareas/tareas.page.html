@@ -1,139 +1,160 @@
+<!-- Encabezado de la página sin borde -->
 <ion-header class="ion-no-border">
   <ion-toolbar class="header-toolbar">
+
+    <!-- Botón para abrir el menú lateral -->
     <ion-buttons slot="start">
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
+
+    <!-- Título de la pantalla -->
     <ion-title class="header-title">Mis Tareas</ion-title>
+
+    <!-- Botón para mostrar u ocultar el formulario de nueva tarea -->
     <ion-buttons slot="end">
       <ion-button (click)="toggleForm()" class="add-btn">
         <ion-icon name="add-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido principal -->
 <ion-content class="tareas-content">
 
-  <!-- Formulario para nueva tarea -->
+  <!-- Formulario para agregar una nueva tarea (se muestra solo si showForm es true) -->
   <div class="new-task-card" *ngIf="showForm">
     <h3 class="form-title">Nueva Tarea</h3>
 
+    <!-- Campo para el título -->
     <div class="input-group">
       <label>Título</label>
-      <input type="text" [(ngModel)]="newTask.titulo" placeholder="Ej: Ensayo de historia" />
+      <input type="text" [(ngModel)]="newTask.titulo" />
     </div>
 
+    <!-- Campo para la materia -->
     <div class="input-group">
       <label>Materia</label>
-      <input type="text" [(ngModel)]="newTask.materia" placeholder="Ej: Historia Universal" />
+      <input type="text" [(ngModel)]="newTask.materia" />
     </div>
 
+    <!-- Campo para la fecha -->
     <div class="input-group">
       <label>Fecha de entrega</label>
       <input type="date" [(ngModel)]="newTask.fecha" />
     </div>
 
+    <!-- Campo para la descripción -->
     <div class="input-group">
       <label>Descripción</label>
-      <textarea [(ngModel)]="newTask.descripcion" placeholder="Detalles de la tarea..." rows="3"></textarea>
+      <textarea [(ngModel)]="newTask.descripcion"></textarea>
     </div>
 
-    <!-- Zona de archivos -->
+    <!-- Zona para subir archivos -->
     <div class="file-upload-zone" (click)="fileInput.click()" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
       <input #fileInput type="file" multiple hidden (change)="onFilesSelected($event)" />
-      <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon>
-      <p class="upload-text">Arrastra archivos aquí o <span>selecciona</span></p>
-      <p class="upload-hint">PDF, Word, imágenes, ZIP — cualquier formato</p>
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      <p>Arrastra archivos o selecciona</p>
     </div>
 
-    <!-- Archivos seleccionados -->
+    <!-- Lista de archivos seleccionados -->
     <div class="files-list" *ngIf="newTask.archivos.length > 0">
       <div class="file-chip" *ngFor="let file of newTask.archivos; let i = index">
-        <ion-icon [name]="getFileIcon(file.name)" class="file-icon"></ion-icon>
-        <span class="file-name">{{ file.name }}</span>
-        <span class="file-size">{{ formatSize(file.size) }}</span>
-        <ion-icon name="close-circle" class="remove-file" (click)="removeFile(i, $event)"></ion-icon>
+        <ion-icon [name]="getFileIcon(file.name)"></ion-icon>
+        <span>{{ file.name }}</span>
+        <span>{{ formatSize(file.size) }}</span>
+
+        <!-- Botón para eliminar archivo -->
+        <ion-icon name="close-circle" (click)="removeFile(i, $event)"></ion-icon>
       </div>
     </div>
 
+    <!-- Botones del formulario -->
     <div class="form-actions">
-      <button class="btn-cancel" (click)="toggleForm()">Cancelar</button>
-      <button class="btn-save" (click)="addTask()">
-        <ion-icon name="checkmark-circle-outline"></ion-icon>
-        Guardar Tarea
-      </button>
+      <button (click)="toggleForm()">Cancelar</button>
+      <button (click)="addTask()">Guardar Tarea</button>
     </div>
   </div>
 
-  <!-- Stats -->
+  <!-- Barra de estadísticas -->
   <div class="stats-bar">
     <div class="stat-pill">
-      <span class="stat-number">{{ tareas.length }}</span>
-      <span class="stat-label">Total</span>
+      <span>{{ tareas.length }}</span>
+      <span>Total</span>
     </div>
+
     <div class="stat-pill pendiente">
-      <span class="stat-number">{{ getPendientes() }}</span>
-      <span class="stat-label">Pendientes</span>
+      <span>{{ getPendientes() }}</span>
+      <span>Pendientes</span>
     </div>
+
     <div class="stat-pill completada">
-      <span class="stat-number">{{ getCompletadas() }}</span>
-      <span class="stat-label">Completadas</span>
+      <span>{{ getCompletadas() }}</span>
+      <span>Completadas</span>
     </div>
   </div>
 
   <!-- Lista de tareas -->
   <div class="tasks-list">
+
+    <!-- Recorre cada tarea -->
     <div class="task-card" *ngFor="let tarea of tareas; let i = index" [class.completed]="tarea.completada">
 
       <div class="task-header">
-        <div class="task-check" (click)="toggleComplete(i)">
-          <ion-icon [name]="tarea.completada ? 'checkmark-circle' : 'ellipse-outline'"
-            [class.checked]="tarea.completada"></ion-icon>
+
+        <!-- Botón para marcar como completada -->
+        <div (click)="toggleComplete(i)">
+          <ion-icon [name]="tarea.completada ? 'checkmark-circle' : 'ellipse-outline'"></ion-icon>
         </div>
-        <div class="task-info">
-          <h4 class="task-title">{{ tarea.titulo }}</h4>
-          <span class="task-materia">{{ tarea.materia }}</span>
+
+        <!-- Información de la tarea -->
+        <div>
+          <h4>{{ tarea.titulo }}</h4>
+          <span>{{ tarea.materia }}</span>
         </div>
-        <div class="task-actions">
-          <button class="action-btn delete" (click)="deleteTask(i)">
+
+        <!-- Botón para eliminar tarea -->
+        <div>
+          <button (click)="deleteTask(i)">
             <ion-icon name="trash-outline"></ion-icon>
           </button>
         </div>
+
       </div>
 
-      <p class="task-desc" *ngIf="tarea.descripcion">{{ tarea.descripcion }}</p>
+      <!-- Descripción de la tarea -->
+      <p *ngIf="tarea.descripcion">{{ tarea.descripcion }}</p>
 
       <!-- Archivos adjuntos -->
-      <div class="task-files" *ngIf="tarea.archivos && tarea.archivos.length > 0">
-        <div class="attached-file" *ngFor="let file of tarea.archivos">
+      <div *ngIf="tarea.archivos && tarea.archivos.length > 0">
+        <div *ngFor="let file of tarea.archivos">
           <ion-icon [name]="getFileIcon(file.name)"></ion-icon>
           <span>{{ file.name }}</span>
         </div>
       </div>
 
-      <div class="task-footer">
-        <span class="task-date">
-          <ion-icon name="calendar-outline"></ion-icon>
-          {{ tarea.fecha }}
-        </span>
-        <span class="task-status" [class.done]="tarea.completada">
-          {{ tarea.completada ? 'Completada' : 'Pendiente' }}
-        </span>
+      <!-- Pie de la tarea -->
+      <div>
+        <span>{{ tarea.fecha }}</span>
+        <span>{{ tarea.completada ? 'Completada' : 'Pendiente' }}</span>
       </div>
+
     </div>
   </div>
 
-  <!-- Empty state -->
+  <!-- Mensaje cuando no hay tareas -->
   <div class="empty-state" *ngIf="tareas.length === 0">
     <ion-icon name="document-text-outline"></ion-icon>
     <h3>Sin tareas aún</h3>
-    <p>Toca el botón <strong>+</strong> para agregar tu primera tarea</p>
+    <p>Presiona el botón + para agregar una tarea</p>
   </div>
 
+  <!-- Botón flotante para agregar tarea -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="toggleForm()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="toggleForm()" class="fab-agregar">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
 </ion-content>
